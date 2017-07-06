@@ -19,9 +19,14 @@ module.exports = {
     ],
     module: {
         loaders: [{
-            test: /\.css$/,
-            loader: 'style-loader!css-loader?importLoaders=1'
-        }]
+                test: /\.css$/,
+                loader: 'style-loader!css-loader?importLoaders=1'
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            }
+        ]
     },
     // postcss: function() {
     //     return [

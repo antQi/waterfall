@@ -1,18 +1,10 @@
 var WaterFall = require('./js/waterfall')
+var boxTpl = require('./html/box.html')
+var waterfall
 
 require('./css/index.css')
 
-var waterfall
-
 window.onload = function() {
-    var boxTpl = '<div class="container">' +
-        '<div class="box">' +
-        '<div class="pic" style="height:{height}px;background-color:{bgColor}">' +
-        '<h1 class="title">{number}</h1>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
-
     waterfall = new WaterFall({
         parent: document.querySelector('.container'),
         boxClass: 'box',
