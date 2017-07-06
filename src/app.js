@@ -1,7 +1,24 @@
+var WaterFall = require('./js/waterfall')
+
+require('./css/index.css')
+
 var waterfall
 
 window.onload = function() {
-    waterfall = new WaterFall(document.querySelector('.container'), 'box', getData)
+    var boxTpl = '<div class="container">' +
+        '<div class="box">' +
+        '<div class="pic" style="height:{height}px;background-color:{bgColor}">' +
+        '<h1 class="title">{number}</h1>' +
+        '</div>' +
+        '</div>' +
+        '</div>'
+
+    waterfall = new WaterFall({
+        parent: document.querySelector('.container'),
+        boxClass: 'box',
+        getData: getData,
+        boxTpl: boxTpl
+    })
     waterfall.init(getData)
 }
 
@@ -15,7 +32,8 @@ function getData(params) {
     for (var i = 0; i < len; i++) {
         data.push({
             height: randomInt(100, 350),
-            bgColor: randomColor()
+            bgColor: randomColor(),
+            number: i + 1
         })
     }
     return data

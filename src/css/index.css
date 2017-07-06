@@ -17,5 +17,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 5px #ccc;
-    width: 165px
+    width: 165px;
+    text-align: center;
+    color: #fff;
 }

@@ -1,13 +1,15 @@
-function WaterFall(containerEle, boxClass) {
-    this.containerEle = containerEle
-    this.boxClass = boxClass
+function WaterFall(params) {
+    this.container = params.parent
+    this.boxClass = params.boxClass
+    this.getData = params.getData
+    this.boxTpl = params.boxTpl
     this.isFirst = true
 }
 
 WaterFall.prototype._setBaseStyle = function() {
     this.boxWidth = this.boxs[0].offsetWidth
-    this.containerEle.style.width = this.cols * this.boxWidth + 'px'
-    this.containerEle.style.margin = '0 auto'
+    this.container.style.width = this.cols * this.boxWidth + 'px'
+    this.container.style.margin = '0 auto'
 }
 
 WaterFall.prototype._setBoxs = function() {
@@ -26,9 +28,7 @@ WaterFall.prototype._setCols = function() {
 WaterFall.prototype.render = function(data) {
     var self = this
     if (!self.boxTpl) {
-        self.boxNode = document.getElementsByClassName(self.boxClass)
-        self.boxNode = self.boxNode ? self.boxNode[0].cloneNode(true) : ''
-        self.boxTpl = self.boxNode.outerHTML
+        return
     }
     var nodeStr = self.boxTpl
     var html = '';
@@ -50,21 +50,17 @@ WaterFall.prototype.render = function(data) {
             docfrag.appendChild(domList[j])
         }
     }
-    if (self.isFirst) {
-        self.containerEle.getElementsByClassName(this.boxClass)[0].remove()
-    }
-    self.containerEle.appendChild(docfrag)
+    self.container.appendChild(docfrag)
 }
 
 
-WaterFall.prototype.init = function(getData) {
+WaterFall.prototype.init = function() {
     var self = this
 
     var e = window.event
     if (e.type !== 'resize') {
-        self.render(getData())
+        self.render(self.getData())
     }
-    self.getData = getData
     self._setBoxs()
     self._setCols()
     self._setBaseStyle()
@@ -110,3 +106,5 @@ WaterFall.prototype.scroll = function() {
         }
     }
 }
+
+module.exports = WaterFall

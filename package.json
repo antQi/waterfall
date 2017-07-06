@@ -1,0 +1,26 @@
+{
+  "name": "waterfall",
+  "version": "1.0.0",
+  "description": "``` js-relaese   by javascript css-relaese   by css ```",
+  "main": "./src/app/js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config webpack.config.js --display-modules --colors --display-reasons --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antQi/waterfall.git"
+  },
+  "author": "hi.antqi@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antQi/waterfall/issues"
+  },
+  "homepage": "https://github.com/antQi/waterfall#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.29.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0"
+  }
+}
