@@ -20,7 +20,14 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.css$/,
-            loader: 'style-loader!css-loader'
+            loader: 'style-loader!css-loader?importLoaders=1'
         }]
-    }
+    },
+    // postcss: function() {
+    //     return [
+    //         require('autoprefixer')({
+    //             broswers: ['last 5 versions']
+    //         })
+    //     ]
+    // }
 }

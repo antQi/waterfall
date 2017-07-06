@@ -5,10 +5,6 @@
 
 .container {
     column-width: 202px;
-    -webkit-column-width: 202px;
-    -moz-column-width: 202px;
-    -o-column-width: 202px;
-    -ms-column-width: 202px;
 }
 
 .box {
